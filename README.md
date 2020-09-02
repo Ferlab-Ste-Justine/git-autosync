@@ -1,3 +1,6 @@
+![](https://github.com/Ferlab-Ste-Justine/git-autosync/workflows/Build/badge.svg)
+![](https://github.com/Ferlab-Ste-Justine/git-autosync/workflows/Publish%20Image%20Using%20Commit%20Hash/badge.svg)
+
 # About 
 
 This image is used to regularly pull one or several git repos in the container's filesystem.
