@@ -1,0 +1,17 @@
+[
+    {
+        "path": "/opt/repos/test1",
+        "repo": "https://github.com/Ferlab-Ste-Justine/openstack-kubernetes-cluster.git",
+        "branch": "master"
+    },
+    {
+        "path": "/opt/repos/test2",
+        "repo": "https://github.com/Ferlab-Ste-Justine/openstack-zonefile.git",
+        "branch": "master"
+    },
+    {
+        "path": "/opt/repos/test3",
+        "repo": "https://github.com/Ferlab-Ste-Justine/kubernetes-infrastructure-configuration.git",
+        "branch": "master"
+    }
+]

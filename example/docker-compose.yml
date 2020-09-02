@@ -1,0 +1,14 @@
+version: '3.3'
+
+services:
+  sync:
+    build:
+      context: ../app
+      dockerfile: Dockerfile
+    environment:
+      SCRAPE_INTERVAL: 10000
+      LISTING_PATH: /opt/listing
+    volumes:
+      - ./listing:/opt/listing
+      - ./repos:/opt/repos
+    
