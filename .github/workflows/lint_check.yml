@@ -9,10 +9,12 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Setup node
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v2.1.1
       with:
         node-version: 14.x
     - name: Install dependencies
       run: npm install
+      working-directory: app
     - name: Lint Check
       run: ./node_modules/.bin/eslint src/
+      working-directory: app
