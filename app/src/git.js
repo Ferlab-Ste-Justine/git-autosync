@@ -16,6 +16,7 @@ const {
 
 const runCmd$ = R.curry((cmdStr, workdir, repoProcessingInst) => {
   return new Observable(function (observer) {
+    const unsubscribe = () => {}
     exec(cmdStr, { cwd: workdir }, (err, stdout, stderr) => {
       if (err) {
         return observer.error(err.message)
@@ -25,6 +26,7 @@ const runCmd$ = R.curry((cmdStr, workdir, repoProcessingInst) => {
       )
       observer.complete()
     })
+    return unsubscribe
   })
 })
 
