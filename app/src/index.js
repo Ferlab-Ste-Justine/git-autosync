@@ -1,4 +1,4 @@
-const { interval } = require('rxjs')
+const { timer } = require('rxjs')
 const { exhaust, map, mergeMap } = require('rxjs/operators')
 const R = require('ramda')
 
@@ -24,7 +24,7 @@ const processRepos$ = (listingPath) => {
 }
 
 const processReposRecurring$ = (listingPath, scrapeInterval) => {
-  return interval(scrapeInterval)
+  return timer(0, scrapeInterval)
     .pipe(map(() => processRepos$(listingPath)))
     .pipe(exhaust())
 }

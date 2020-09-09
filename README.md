@@ -1,6 +1,7 @@
 ![](https://github.com/Ferlab-Ste-Justine/git-autosync/workflows/Build/badge.svg)
 ![](https://github.com/Ferlab-Ste-Justine/git-autosync/workflows/Publish%20Image%20Using%20Commit%20Hash/badge.svg)
 ![](https://github.com/Ferlab-Ste-Justine/git-autosync/workflows/Lint%20Check/badge.svg)
+![](https://github.com/Ferlab-Ste-Justine/git-autosync/workflows/Functional%20Tests/badge.svg)
 
 # About 
 
@@ -77,7 +78,7 @@ A health endpoint will have to be implemented.
 
 ## Pipeline
 
-Tests and vulnerability checks should be implemented in the pipeline.
+Vulnerability checks should be implemented in the pipeline.
 
 ## Metrics
 

@@ -4,24 +4,27 @@ const R = require('ramda')
 
 const ensureFileExists$ = (path) => {
   return new Observable(function (observer) {
+    const unsubscribe = () => {}
     fs.stat(path, (err, stats) => {
       if (err) {
-        observer.error(err)
+        return observer.error(err)
       }
       if (!stats.isFile()) {
-        observer.error(`${path} is not a file`)
+        return observer.error(`${path} is not a file`)
       }
       observer.next(path)
       observer.complete()
     })
+    return unsubscribe
   })
 }
 
 const readFile$ = R.curry((parser, path) => {
   return new Observable(function (observer) {
+    const unsubscribe = () => {}
     fs.readFile(path, 'utf8', (err, content) => {
       if (err) {
-        observer.error(err)
+        return observer.error(err)
       }
       try {
         observer.next(parser(content))
@@ -30,14 +33,21 @@ const readFile$ = R.curry((parser, path) => {
         observer.error(`${path} is not parsable`)
       }
     })
+    return unsubscribe
   })
 })
 
 const ifPathNotExists$ = R.curry((path, runIfNotExist$, input) => {
   return new Observable(function (observer) {
+    var subscription = null
+    const unsubscribe = () => {
+      if (subscription) {
+        subscription.unsubscribe()
+      }
+    }
     fs.access(path, fs.constants.R_OK, (err) => {
       if (err) {
-        runIfNotExist$(input).subscribe(
+        subscription = runIfNotExist$(input).subscribe(
           observer.next.bind(observer),
           observer.error.bind(observer),
           observer.complete.bind(observer)
@@ -47,6 +57,7 @@ const ifPathNotExists$ = R.curry((path, runIfNotExist$, input) => {
         observer.complete()
       }
     })
+    return unsubscribe
   })
 })
 

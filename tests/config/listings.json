@@ -1,0 +1,12 @@
+[
+    {
+        "path": "/opt/repos/project1",
+        "repo": "ssh://git@git_server:/home/git/project1.git",
+        "branch": "master"
+    },
+    {
+        "path": "/opt/repos/project2",
+        "repo": "ssh://git@git_server:/home/git/project2.git",
+        "branch": "master"
+    }
+]
