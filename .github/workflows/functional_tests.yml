@@ -1,0 +1,31 @@
+name: Functional Tests
+
+on: [push]
+
+jobs:
+  test:
+    name: Functional Tests
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v2
+    - name: Generate ssh keys
+      run: mkdir ssh-key && cd ssh-key && ssh-keygen -q -P "" -t rsa -f $(pwd)/id_rsa -C "root@root.com" && cp id_rsa.pub authorized_keys
+      working-directory: tests
+    - name: Build Test images
+      run: docker-compose build
+      working-directory: tests
+    - name: Launch Minimal Git Server
+      run: docker-compose up -d git_server && sleep 2
+      working-directory: tests
+    - name: Setup Initial Repo Data For Tests
+      run: docker-compose run test_setup
+      working-directory: tests
+    - name: Launch Git Autosync Service
+      run: docker-compose up -d sync && sleep 2
+      working-directory: tests
+    - name: Run the Tests
+      run: docker-compose run test
+      working-directory: tests
+    - name: Cleanup
+      run: docker-compose down -v
+      working-directory: tests

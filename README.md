@@ -77,7 +77,7 @@ A health endpoint will have to be implemented.
 
 ## Pipeline
 
-Tests and vulnerability checks should be implemented in the pipeline.
+Vulnerability checks should be implemented in the pipeline.
 
 ## Metrics
 

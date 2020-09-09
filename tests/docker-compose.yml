@@ -1,0 +1,44 @@
+version: '3.5'
+
+services:
+  sync:
+    build:
+      context: ../app
+    environment:
+      SCRAPE_INTERVAL: 1
+      LISTING_PATH: /opt/config/listings.json
+    volumes:
+      - repos:/opt/repos
+      - ./config:/opt/config
+      - ./ssh-key:/root/.ssh
+    networks:
+      - test
+  test_setup:
+    build:
+      context: test-setup
+    volumes:
+      - ./ssh-key:/home/git/.ssh
+    networks:
+      - test
+  test:
+    build:
+      context: tests
+    volumes:
+      - repos:/opt/repos
+      - ./ssh-key:/root/.ssh
+    networks:
+      - test
+  git_server:
+    build:
+      context: gitserver
+    volumes:
+      - ./ssh-key:/home/git/.ssh
+    command: ["project1", "project2", "project3"]
+    networks:
+      - test
+
+networks:
+  test:
+
+volumes:
+  repos:
