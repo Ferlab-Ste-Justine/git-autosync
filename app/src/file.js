@@ -41,7 +41,7 @@ const ifPathNotExists$ = R.curry((path, runIfNotExist$, input) => {
   return new Observable(function (observer) {
     var subscription = null
     const unsubscribe = () => {
-      if(subscription) {
+      if (subscription) {
         subscription.unsubscribe()
       }
     }
