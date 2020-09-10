@@ -2,6 +2,8 @@
 ![](https://github.com/Ferlab-Ste-Justine/git-autosync/workflows/Publish%20Image%20Using%20Commit%20Hash/badge.svg)
 ![](https://github.com/Ferlab-Ste-Justine/git-autosync/workflows/Lint%20Check/badge.svg)
 ![](https://github.com/Ferlab-Ste-Justine/git-autosync/workflows/Functional%20Tests/badge.svg)
+![](https://github.com/Ferlab-Ste-Justine/git-autosync/workflows/Dependencies%20Audit/badge.svg)
+
 
 # About 
 
@@ -56,7 +58,7 @@ The current changes are not supported for repository listing configurations:
 
 An explicit of passing git credentials wasn't implemented as we are currently only dealing with public repositories.
 
-However, passing your ssh key as a secret in the **/home/node/.ssh** should work.
+However, passing your ssh key as a secret in the **/root/.ssh** should work.
 
 ## Git History
 
@@ -70,15 +72,11 @@ Parts that were skipped over in order to deliver a working solution within compe
 
 ## Logging
 
-A higher quality logging tool like Winston should be used and ideally, logs should be outputted in JSON format.
+More logging options should be available beyond simply logging on the console.
 
 ## Health Checks
 
 A health endpoint will have to be implemented.
-
-## Pipeline
-
-Vulnerability checks should be implemented in the pipeline.
 
 ## Metrics
 
