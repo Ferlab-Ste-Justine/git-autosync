@@ -3,7 +3,7 @@
 ![](https://github.com/Ferlab-Ste-Justine/git-autosync/workflows/Lint%20Check/badge.svg)
 ![](https://github.com/Ferlab-Ste-Justine/git-autosync/workflows/Functional%20Tests/badge.svg)
 ![](https://github.com/Ferlab-Ste-Justine/git-autosync/workflows/Dependencies%20Audit/badge.svg)
-
+![](https://github.com/Ferlab-Ste-Justine/git-autosync/workflows/Commit%20Lint%20Check/badge.svg)
 
 # About 
 
