@@ -16,7 +16,7 @@ jobs:
       with:
         username: ${{ secrets.FERLAB_DOCKER_HUB_USER }}
         password: ${{ secrets.FERLAB_DOCKER_HUB_TOKEN }}
-        image: chusj/git-autosync
+        image: ferlabcrsj/git-autosync
         tag_source: sha
         location: app
         dockerfile: app/Dockerfile
