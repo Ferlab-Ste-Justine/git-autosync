@@ -10,7 +10,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "ramda": "^0.27.1",
-    "rxjs": "^6.6.2"
+    "rxjs": "^6.6.7"
   },
   "devDependencies": {
     "eslint": "^7.8.1",
